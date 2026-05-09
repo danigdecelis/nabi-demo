@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nabi Diseño de Interiores | Sé Feliz en Tu Espacio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ivory: #F9F5EE;
+    --ivory-2: #F2EDE3;
+    --terra: #C4714A;
+    --terra-dark: #A85D3A;
+    --terra-light: #F0D5C6;
+    --walnut: #2A1F14;
+    --walnut-mid: #4A3728;
+    --sage: #7A8C6E;
+    --body: #5C4F42;
+    --muted: #A89882;
+    --border: #E5DDD0;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--walnut);
+    background: var(--ivory);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(249, 245, 238, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 60px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    color: var(--walnut);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--terra); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--body);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--terra); }
+
+  .nav-cta {
+    background: var(--terra) !important;
+    color: white !important;
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-weight: 500 !important;
+    font-size: 14px;
+    transition: background 0.2s !important;
+    text-decoration: none;
+  }
+
+  .nav-cta:hover { background: var(--terra-dark) !important; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--walnut);
+    display: flex;
+    align-items: center;
+    padding: 100px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grain {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  .hero-decor {
+    position: absolute;
+    top: 100px; right: 0;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(196, 113, 74, 0.06) 0%, rgba(196, 113, 74, 0.02) 100%);
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  .hero-circle {
+    position: absolute;
+    bottom: -120px; right: -80px;
+    width: 400px; height: 400px;
+    border: 1px solid rgba(196, 113, 74, 0.08);
+    border-radius: 50%;
+  }
+
+  .hero-circle-2 {
+    position: absolute;
+    top: 60px; left: -120px;
+    width: 300px; height: 300px;
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--terra);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .hero-eyebrow-dot {
+    width: 28px; height: 1px;
+    background: var(--terra);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: clamp(42px, 5.5vw, 68px);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    color: var(--ivory);
+    margin-bottom: 12px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--terra);
+  }
+
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: rgba(249, 245, 238, 0.5);
+    margin-bottom: 28px;
+    letter-spacing: 0.3px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    color: rgba(249, 245, 238, 0.6);
+    line-height: 1.8;
+    max-width: 440px;
+    margin-bottom: 44px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-terra {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--terra);
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 16px 30px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-terra:hover {
+    background: var(--terra-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(196, 113, 74, 0.35);
+  }
+
+  .btn-terra svg { width: 18px; height: 18px; fill: white; }
+
+  .hero-link {
+    font-size: 14px;
+    color: rgba(249, 245, 238, 0.5);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(249, 245, 238, 0.2);
+    padding-bottom: 2px;
+    transition: all 0.2s;
+  }
+
+  .hero-link:hover { color: var(--ivory); border-color: rgba(249, 245, 238, 0.5); }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .hero-stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .hero-stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 24px;
+    transition: background 0.2s;
+  }
+
+  .hero-stat-card:hover { background: rgba(255,255,255,0.07); }
+
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--ivory);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .hero-stat-label {
+    font-size: 13px;
+    color: rgba(249, 245, 238, 0.45);
+    line-height: 1.4;
+  }
+
+  .hero-tagcard {
+    background: rgba(196, 113, 74, 0.1);
+    border: 1px solid rgba(196, 113, 74, 0.2);
+    border-radius: 16px;
+    padding: 24px 28px;
+  }
+
+  .hero-tagcard-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 12px;
+  }
+
+  .hero-tagcard-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .service-tag {
+    background: rgba(196, 113, 74, 0.12);
+    border: 1px solid rgba(196, 113, 74, 0.2);
+    color: rgba(249, 245, 238, 0.75);
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+
+  @media (max-width: 900px) {
+    .hero { padding: 100px 24px 60px; min-height: auto; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-right { display: none; }
+  }
+
+  /* SECCIONES */
+  .section {
+    padding: 100px 60px;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    color: var(--walnut);
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .section-title em { font-style: italic; color: var(--terra); }
+
+  .section-subtitle {
+    font-size: 16px;
+    color: var(--body);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 56px;
+  }
+
+  @media (max-width: 768px) {
+    .section { padding: 70px 24px; }
+  }
+
+  /* SERVICIOS */
+  .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .servicio-card {
+    background: var(--ivory-2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+    transition: all 0.25s;
+    display: flex;
+    gap: 24px;
+  }
+
+  .servicio-card:hover {
+    box-shadow: 0 12px 40px rgba(42, 31, 20, 0.08);
+    transform: translateY(-3px);
+    border-color: var(--terra-light);
+  }
+
+  .servicio-icon {
+    width: 52px; height: 52px;
+    min-width: 52px;
+    background: var(--terra-light);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  .servicio-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--walnut);
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+
+  .servicio-text p {
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .servicios-grid { grid-template-columns: 1fr; }
+    .servicio-card { flex-direction: column; gap: 16px; }
+  }
+
+  /* PROCESO */
+  .section-alt {
+    background: var(--walnut);
+    padding: 100px 60px;
+  }
+
+  .proceso-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 56px;
+    position: relative;
+  }
+
+  .proceso-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .paso {
+    padding: 0 24px;
+    text-align: center;
+    position: relative;
+  }
+
+  .paso-num {
+    width: 56px; height: 56px;
+    background: rgba(196, 113, 74, 0.15);
+    border: 1px solid rgba(196, 113, 74, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--terra);
+    margin: 0 auto 24px;
+    position: relative;
+    z-index: 1;
+    background: var(--walnut);
+  }
+
+  .paso h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ivory);
+    margin-bottom: 10px;
+  }
+
+  .paso p {
+    font-size: 13px;
+    color: rgba(249, 245, 238, 0.45);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 768px) {
+    .section-alt { padding: 70px 24px; }
+    .proceso-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .proceso-steps::before { display: none; }
+  }
+
+  /* TESTIMONIOS */
+  .testimonios {
+    background: var(--ivory-2);
+    padding: 100px 60px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .testimonio {
+    background: var(--ivory);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+  }
+
+  .testimonio::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    color: var(--terra-light);
+    position: absolute;
+    top: 12px; right: 24px;
+    line-height: 1;
+  }
+
+  .testimonio-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--walnut-mid);
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+
+  .testimonio-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .author-dot {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--terra-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--terra-dark);
+  }
+
+  .author-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--walnut);
+  }
+
+  .author-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .testimonios { padding: 70px 24px; }
+    .testimonios-grid { grid-template-columns: 1fr; }
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 120px 60px;
+    background: var(--terra);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 300px; height: 300px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+  }
+
+  .cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -60px;
+    width: 250px; height: 250px;
+    background: rgba(0,0,0,0.06);
+    border-radius: 50%;
+  }
+
+  .cta-inner {
+    max-width: 580px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-section .section-label { color: rgba(255,255,255,0.65); }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 5vw, 52px);
+    font-weight: 400;
+    color: white;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .cta-title em { font-style: italic; }
+
+  .cta-section p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 44px;
+    line-height: 1.75;
+  }
+
+  .cta-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    color: var(--terra);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 18px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  }
+
+  .cta-wa:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 36px rgba(0,0,0,0.2);
+  }
+
+  .cta-wa svg { width: 20px; height: 20px; fill: var(--terra); }
+
+  .cta-info {
+    margin-top: 24px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  @media (max-width: 768px) {
+    .cta-section { padding: 80px 24px; }
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--walnut);
+    color: rgba(249, 245, 238, 0.4);
+    padding: 70px 60px 40px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 48px;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--ivory);
+    display: block;
+    margin-bottom: 14px;
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--terra); }
+
+  .footer-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: rgba(249, 245, 238, 0.35);
+    margin-bottom: 14px;
+  }
+
+  .footer-brand > p {
+    font-size: 13px;
+    color: rgba(249, 245, 238, 0.35);
+    line-height: 1.7;
+    max-width: 280px;
+  }
+
+  .footer-col h4 {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 18px;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a {
+    font-size: 13px;
+    color: rgba(249, 245, 238, 0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: rgba(249, 245, 238, 0.8); }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(249, 245, 238, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    footer { padding: 60px 24px 40px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Nabi <span>Interiores</span></a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="https://wa.me/595991709889" class="nav-cta">Consulta gratis</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grain"></div>
+  <div class="hero-decor"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle-2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        Diseño de Interiores, Asuncion
+      </div>
+      <h1>Espacios que te<br>hacen <em>feliz</em></h1>
+      <p class="hero-tagline">Se Feliz en Tu Espacio</p>
+      <p>Disenamos y ejecutamos cada detalle de tu hogar o local comercial: iluminacion, paredes, tapizados, muebles a medida y mas. Tu espacio soñado, hecho realidad.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/595991709889?text=Hola%2C+me+interesa+una+consulta+de+diseno+de+interiores+con+Nabi" class="btn-terra">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consulta gratuita
+        </a>
+        <a href="#servicios" class="hero-link">Ver servicios</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat-row">
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">+200</div>
+          <div class="hero-stat-label">Proyectos completados</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">8+</div>
+          <div class="hero-stat-label">Años transformando espacios</div>
+        </div>
+      </div>
+      <div class="hero-tagcard">
+        <div class="hero-tagcard-label">Especialidades</div>
+        <div class="hero-tagcard-services">
+          <span class="service-tag">Diseno Residencial</span>
+          <span class="service-tag">Muebles a medida</span>
+          <span class="service-tag">Remodelacion</span>
+          <span class="service-tag">Tapizados</span>
+          <span class="service-tag">Iluminacion</span>
+          <span class="service-tag">Diseno Comercial</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="section" id="servicios">
+  <div class="section-inner">
+    <div class="section-label">Lo que hacemos</div>
+    <h2 class="section-title">Cada espacio cuenta<br>una <em>historia</em></h2>
+    <p class="section-subtitle">Desde la primera reunion hasta la entrega final, acompañamos cada decision para que el resultado sea exactamente lo que imaginaste.</p>
+    <div class="servicios-grid">
+      <div class="servicio-card">
+        <div class="servicio-icon">🏠</div>
+        <div class="servicio-text">
+          <h3>Diseño Residencial</h3>
+          <p>Transformamos casas y apartamentos en hogares que reflejan tu personalidad. Disenamos cada ambiente con coherencia estetica y funcionalidad diaria.</p>
+        </div>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">🛋️</div>
+        <div class="servicio-text">
+          <h3>Muebles a Medida</h3>
+          <p>Closets, cocinas, bibliotecas y muebles de diseño fabricados a la medida de tu espacio. Materiales de primera y terminaciones impecables.</p>
+        </div>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">🔨</div>
+        <div class="servicio-text">
+          <h3>Remodelacion Integral</h3>
+          <p>Coordinamos todos los gremios necesarios: electricidad, pintura, revestimientos y carpinteria. Un solo interlocutor para toda la obra.</p>
+        </div>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">💡</div>
+        <div class="servicio-text">
+          <h3>Iluminacion y Tapizados</h3>
+          <p>Diseño luminico que crea ambientes y tapizados con telas de calidad que renuevan completamente el aspecto de sillas, sofas y cabeceras.</p>
+        </div>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">🏢</div>
+        <div class="servicio-text">
+          <h3>Espacios Comerciales</h3>
+          <p>Oficinas, locales y restaurantes diseñados para transmitir la identidad de tu marca y mejorar la experiencia de clientes y empleados.</p>
+        </div>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">🖼️</div>
+        <div class="servicio-text">
+          <h3>Render y Proyecto 3D</h3>
+          <p>Visualiza tu espacio terminado antes de comenzar. Renders fotorrealistas que te permiten tomar decisiones con total seguridad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="section-alt" id="proceso">
+  <div class="section-inner">
+    <div class="section-label" style="color: rgba(249,245,238,0.4);">Como trabajamos</div>
+    <h2 class="section-title" style="color: var(--ivory);">Un proceso <em>claro</em><br>de principio a fin</h2>
+    <div class="proceso-steps">
+      <div class="paso">
+        <div class="paso-num">1</div>
+        <h4>Consulta inicial</h4>
+        <p>Reunion gratuita para entender tu vision, necesidades, estilo y presupuesto disponible.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-num">2</div>
+        <h4>Propuesta y render</h4>
+        <p>Disenamos el proyecto en 3D para que puedas ver el resultado antes de aprobar.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-num">3</div>
+        <h4>Produccion</h4>
+        <p>Fabricamos muebles, coordinamos proveedores y supervisamos cada detalle de la ejecucion.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-num">4</div>
+        <h4>Entrega y disfrute</h4>
+        <p>Tu espacio listo para vivir. Con el estilo que siempre quisiste y la calidad que mereces.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios" id="testimonios">
+  <div class="section-inner">
+    <div class="section-label">Lo que dicen</div>
+    <h2 class="section-title">Espacios que <em>enamoran</em></h2>
+    <div class="testimonios-grid">
+      <div class="testimonio">
+        <p class="testimonio-text">Contrate a Nabi para remodelar mi living y el resultado supero todas mis expectativas. El render que me mostraron antes fue exactamente lo que recibi. Recomiendo sin dudarlo.</p>
+        <div class="testimonio-author">
+          <div class="author-dot">VR</div>
+          <div>
+            <div class="author-name">Valentina Ramirez</div>
+            <div class="author-label">Diseno residencial, 2025</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio">
+        <p class="testimonio-text">Los closets a medida que me hicieron son perfectos. Aprovechan cada centimetro del espacio y el material es de excelente calidad. El equipo fue muy prolijo y puntual.</p>
+        <div class="testimonio-author">
+          <div class="author-dot">MC</div>
+          <div>
+            <div class="author-name">Marcos Cabral</div>
+            <div class="author-label">Muebles a medida, 2025</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio">
+        <p class="testimonio-text">Remodelaron mi local comercial y el cambio fue increible. Mis clientes siempre comentan lo lindo que quedo. Las ventas mejoraron desde que inaugure el nuevo espacio.</p>
+        <div class="testimonio-author">
+          <div class="author-dot">LP</div>
+          <div>
+            <div class="author-name">Laura Pereira</div>
+            <div class="author-label">Local comercial, 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio">
+        <p class="testimonio-text">La iluminacion que diseñaron para mi dormitorio cambio completamente el ambiente. Algo tan simple hizo una diferencia enorme. Son unos artistas del espacio.</p>
+        <div class="testimonio-author">
+          <div class="author-dot">SN</div>
+          <div>
+            <div class="author-name">Sofia Nuñez</div>
+            <div class="author-label">Diseno de iluminacion, 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label">Empieza hoy</div>
+    <h2 class="cta-title">Tu espacio ideal<br>esta a un <em>WhatsApp</em></h2>
+    <p>Primera consulta completamente gratuita. Contanos tu proyecto y te damos una orientacion de diseño sin compromiso. Estamos en Av. Eusebio Ayala 426, Asuncion.</p>
+    <a href="https://wa.me/595991709889?text=Hola%2C+me+interesa+una+consulta+gratuita+de+diseno+de+interiores" class="cta-wa">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Escribir a Nabi
+    </a>
+    <p class="cta-info">hola@nabi.com.py · +595 991 709 889 · Lun-Vie 9:00-18:00</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">Nabi <span>Interiores</span></a>
+      <p class="footer-tagline">Se Feliz en Tu Espacio</p>
+      <p>Estudio de diseño de interiores en Asuncion. Remodelaciones, muebles a medida, iluminacion y diseno integral de espacios residenciales y comerciales.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#">Diseno Residencial</a></li>
+        <li><a href="#">Muebles a Medida</a></li>
+        <li><a href="#">Remodelacion</a></li>
+        <li><a href="#">Iluminacion</a></li>
+        <li><a href="#">Espacios Comerciales</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="#">Av. Eusebio Ayala 426</a></li>
+        <li><a href="#">Asuncion, Paraguay</a></li>
+        <li><a href="https://wa.me/595991709889">+595 991 709 889</a></li>
+        <li><a href="mailto:hola@nabi.com.py">hola@nabi.com.py</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>2026 Nabi Diseno de Interiores. Todos los derechos reservados.</span>
+    <span>Asuncion, Paraguay</span>
+  </div>
+</footer>
+
+</body>
+</html>
